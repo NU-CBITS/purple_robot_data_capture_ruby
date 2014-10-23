@@ -2,11 +2,21 @@
 
 [![Build Status](https://travis-ci.org/cbitstech/purple_robot_data_capture_ruby.svg)](https://travis-ci.org/cbitstech/purple_robot_data_capture_ruby) [![security](https://hakiri.io/github/cbitstech/purple_robot_data_capture_ruby/master.svg)](https://hakiri.io/github/cbitstech/purple_robot_data_capture_ruby/master)
 
-## Example with Rack
+## Dependencies
+
+None, although you will probably want to install at least a minimal webserver.
+
+## Rack example
+
+### Install the gem
+
+    $ git clone https://github.com/cbitstech/purple_robot_data_capture_ruby.git
+    $ cd purple_robot_data_capture_ruby; gem build purple_robot_data_capture_ruby.gemspec
+    $ gem install purple_robot_data_capture_ruby-X.X.X.gem
 
 ### Install Rack
 
-    `gem install rack`
+    $ gem install rack
 
 ### Write a Rack application
 
@@ -29,17 +39,17 @@ run `rackup config.ru` and
 
 configure your Purple Robot HTTP Upload Endpoint to `http://your-ip:9292/`
 
-## Example with Rails
+## Rails example
 
 ### Install Rails
 
-    `gem install rails`
+    $ gem install rails
 
 ### Create and configure the application
 
-    `rails new pr_endpoint`
-    echo "gem 'purple_robot_data_capture_ruby', git: 'https://github.com/cbitstech/purple_robot_data_capture_ruby.git'" >> Gemfile
-    bundle install
+    $ rails new pr_endpoint
+    $ echo "gem 'purple_robot_data_capture_ruby', git: 'https://github.com/cbitstech/purple_robot_data_capture_ruby.git'" >> Gemfile
+    $ bundle install
 
 add to your `config/routes.rb`
 
@@ -63,6 +73,6 @@ create a controller `app/controllers/payloads_controller.rb`
 
 start the app
 
-    bin/rails s
+    $ bin/rails s
 
 configure your Purple Robot HTTP Upload Endpoint to `http://your-ip:3000/payloads`
