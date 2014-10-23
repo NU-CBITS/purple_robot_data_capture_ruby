@@ -2,6 +2,10 @@ require 'digest'
 require 'json'
 
 module PurpleRobot
+  # An unexpected checksum was received with the payload.
+  class ChecksumError < StandardError
+  end
+
   # A data package containing one or more Emitted Readings.
   class Payload
     def initialize(json)
@@ -34,9 +38,11 @@ module PurpleRobot
     def validate!
       md5 = Digest::MD5.new
       md5.update(@data['UserHash'] + @data['Operation'] + @data['Payload'])
-      return if md5.hexdigest == @data['Checksum']
+      expected = md5.hexdigest
+      return if expected == @data['Checksum']
 
-      fail ChecksumError('invalid payload checksum')
+      fail ChecksumError.new("invalid checksum: expected #{ expected } " \
+                             "got #{ @data['Checksum'] }")
     end
   end
 end

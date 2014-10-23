@@ -76,3 +76,7 @@ start the app
     $ bin/rails s
 
 configure your Purple Robot HTTP Upload Endpoint to `http://your-ip:3000/payloads`
+
+## Running specs
+
+`rake` or `rake test`
