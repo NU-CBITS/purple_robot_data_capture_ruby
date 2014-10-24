@@ -15,5 +15,6 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/cbitstech/purple_robot_data_capture_ruby'
   s.license = 'MIT'
 
+  s.add_development_dependency 'rake', '~> 10.3'
   s.add_development_dependency 'rubocop', '~> 0.26'
 end
