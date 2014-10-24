@@ -6,7 +6,7 @@ module PurpleRobot
   class ChecksumError < StandardError
   end
 
-  # A data package containing one or more Emitted Readings.
+  # A data package containing one or more Probes.
   class Payload
     def initialize(json)
       @data = JSON.parse(json)
@@ -17,7 +17,7 @@ module PurpleRobot
       @readings ||= (
         payload = JSON.parse(@data['Payload'])
 
-        payload.map { |reading| PurpleRobot::EmittedReading.new(reading) }
+        payload.map { |reading| PurpleRobot::Probe.new(reading) }
       )
     end
 
@@ -41,8 +41,8 @@ module PurpleRobot
       expected = md5.hexdigest
       return if expected == @data['Checksum']
 
-      fail ChecksumError.new("invalid checksum: expected #{ expected } " \
-                             "got #{ @data['Checksum'] }")
+      fail ChecksumError, "invalid checksum: expected #{ expected } " \
+                          "got #{ @data['Checksum'] }"
     end
   end
 end

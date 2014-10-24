@@ -5,14 +5,14 @@ module PurpleRobot
   describe Payload do
     describe 'given an invalid checksum' do
       it 'should raise an error' do
-        proc {
+        proc do
           Payload.new({
             'UserHash' => 'asdf',
             'Operation' => 'do things',
             'Payload' => 'abcde',
             'Checksum' => 'baz'
           }.to_json)
-        }.must_raise ChecksumError
+        end.must_raise ChecksumError
       end
     end
 
