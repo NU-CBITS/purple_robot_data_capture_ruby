@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../../lib/purple_robot/probe'
+require_relative '../../lib/purple_robot/probe_reading'
 
 module PurpleRobot
   describe ProbeReading do
