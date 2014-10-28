@@ -6,7 +6,7 @@ module PurpleRobot
   class ChecksumError < StandardError
   end
 
-  # A data package containing one or more Probes.
+  # A data package containing one or more Probe Readings.
   class Payload
     def initialize(json)
       @data = JSON.parse(json)
@@ -17,7 +17,7 @@ module PurpleRobot
       @readings ||= (
         payload = JSON.parse(@data['Payload'])
 
-        payload.map { |reading| PurpleRobot::Probe.new(reading) }
+        payload.map { |reading| PurpleRobot::ProbeReading.new(reading) }
       )
     end
 
