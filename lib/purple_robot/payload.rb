@@ -8,9 +8,14 @@ module PurpleRobot
 
   # A data package containing one or more Probe Readings.
   class Payload
+    attr_reader :user_hash, :operation
+
     def initialize(json)
       @data = JSON.parse(json)
       validate!
+
+      @user_hash = @data['UserHash']
+      @operation = @data['Operation']
     end
 
     def readings
