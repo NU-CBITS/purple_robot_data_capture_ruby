@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ['Eric Carty-Fickes']
   s.email = 'ericcf@northwestern.edu'
   s.files = ['README.md', 'lib/purple_robot.rb'] +
-            Dir['lib/purple_robot/**/*.rb']
+    Dir['lib/purple_robot/**/*.rb']
   s.homepage = 'https://github.com/cbitstech/purple_robot_data_capture_ruby'
   s.license = 'MIT'
 
