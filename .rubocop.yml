@@ -1,3 +1,6 @@
 Documentation:
   Exclude:
     - spec/**/*
+
+SpaceInsideStringInterpolation:
+  Enabled: false
